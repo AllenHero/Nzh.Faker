@@ -12,12 +12,13 @@ namespace Nzh.Faker.Areas.Baisc.Controllers
     public class ItemsController : BaseController
     {
         public IItemsService ItemsService { get; set; }
-        // GET: Permissions/Items
+
         public override ActionResult Index(int? id)
         {
             base.Index(id);
             return View();
         }
+
         [HttpGet]
         public JsonResult List()
         {
@@ -25,6 +26,7 @@ namespace Nzh.Faker.Areas.Baisc.Controllers
             var result = new { code = 0, count = list.Count(), data = list };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         [HttpGet]
         public JsonResult GetItemsTreeSelect()
         {
@@ -35,6 +37,7 @@ namespace Nzh.Faker.Areas.Baisc.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Add(ItemsModel model)
         {
@@ -45,11 +48,13 @@ namespace Nzh.Faker.Areas.Baisc.Controllers
             var result = ItemsService.Insert(model) ? SuccessTip("添加成功") : ErrorTip("添加失败");
             return Json(result);
         }
+
         public ActionResult Edit(int id)
         {
             var model = ItemsService.GetById(id);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Edit(ItemsModel model)
         {
@@ -58,6 +63,7 @@ namespace Nzh.Faker.Areas.Baisc.Controllers
             var result = ItemsService.UpdateById(model) ? SuccessTip("修改成功") : ErrorTip("修改失败");
             return Json(result);
         }
+
         [HttpGet]
         public JsonResult Delete(int id)
         {

@@ -50,6 +50,7 @@
     <Compile Include="PageInfo.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Permissions\ButtonModel.cs" />
+    <Compile Include="Permissions\LogModel.cs" />
     <Compile Include="Permissions\ModuleModel.cs" />
     <Compile Include="Permissions\OrganizeModel.cs" />
     <Compile Include="Permissions\RoleAuthorizeModel.cs" />

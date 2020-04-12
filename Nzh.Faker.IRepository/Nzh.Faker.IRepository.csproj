@@ -45,6 +45,7 @@
     <Compile Include="Basic\IItemsRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="Permissions\IButtonRepository.cs" />
+    <Compile Include="Permissions\ILogRepository.cs" />
     <Compile Include="Permissions\IModuleRepository.cs" />
     <Compile Include="Permissions\IOrganizeRepository.cs" />
     <Compile Include="Permissions\IRoleAuthorizeRepository.cs" />

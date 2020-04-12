@@ -76,6 +76,7 @@
     <Compile Include="DBHeper\PageDataView.cs" />
     <Compile Include="DBHeper\SqlHelper.cs" />
     <Compile Include="Permissions\ButtonRepository.cs" />
+    <Compile Include="Permissions\LogRepository.cs" />
     <Compile Include="Permissions\ModuleRepository.cs" />
     <Compile Include="Permissions\OrganizeRepository.cs" />
     <Compile Include="Permissions\RoleAuthorizeRepository.cs" />

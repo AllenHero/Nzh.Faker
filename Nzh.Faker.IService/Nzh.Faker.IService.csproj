@@ -45,6 +45,7 @@
     <Compile Include="Basic\IItemsService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Permissions\IButtonService.cs" />
+    <Compile Include="Permissions\ILogService.cs" />
     <Compile Include="Permissions\IModuleService.cs" />
     <Compile Include="Permissions\IOrganizeService.cs" />
     <Compile Include="Permissions\IRoleAuthorizeService.cs" />
