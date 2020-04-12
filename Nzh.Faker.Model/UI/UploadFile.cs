@@ -9,7 +9,9 @@ namespace Nzh.Faker.Model
     public class UploadFile
     {
         public int code { get; set; }
+
         public string msg { get; set; }
+
         public string src { get; set; }
     }
 }

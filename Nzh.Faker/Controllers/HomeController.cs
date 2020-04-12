@@ -1,5 +1,4 @@
-﻿//using Nzh.Faker.Areas.SysSet.Models;
-using Nzh.Faker.IService;
+﻿using Nzh.Faker.IService;
 using Nzh.Faker.Model;
 using System;
 using System.Collections.Generic;
@@ -12,8 +11,6 @@ namespace Nzh.Faker.Controllers
 {
     public class HomeController : BaseController
     {
-        //public IDonationService DonationService { get; set; }
-
         public override ActionResult Index(int? id)
         {
             ViewBag.Account = Operator == null ? "" : Operator.Account;
@@ -23,9 +20,6 @@ namespace Nzh.Faker.Controllers
 
         public ActionResult Main()
         {
-            //DonationModel donationModel = DonationService.GetConsoleNumShow();
-            //ViewBag.DonationTop = DonationService.GetSumPriceTop(5).ToList();
-            //return View(donationModel);
             return View();
         }
 
@@ -66,6 +60,5 @@ namespace Nzh.Faker.Controllers
                 return Json(uploadFile, JsonRequestBehavior.AllowGet);
             }
         }
-
     }
 }

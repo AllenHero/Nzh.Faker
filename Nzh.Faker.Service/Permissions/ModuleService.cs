@@ -12,19 +12,17 @@ namespace Nzh.Faker.Service
     public class ModuleService : BaseService<ModuleModel>, IModuleService
     {
         public IModuleRepository ModuleRepository { get; set; }
+
         public IButtonService ButtonService { get; set; }
+
         public IRoleAuthorizeService RoleAuthorizeService { get; set; }
+
 
         public dynamic GetListByFilter(ModuleModel filter, PageInfo pageInfo)
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// 获得菜单列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <returns></returns>
         public dynamic GetModuleList(int roleId)
         {
             IEnumerable<ModuleModel> allMenus = GetModuleListByRoleId(roleId);
@@ -40,13 +38,6 @@ namespace Nzh.Faker.Service
             return result;
         }
 
-        /// <summary>
-        /// 根据一级菜单加载子菜单列表
-        /// </summary>
-        /// <param name="treeList"></param>
-        /// <param name="allMenus"></param>
-        /// <param name="tree"></param>
-        /// <param name="moduleId"></param>
         private void GetModuleListByModuleId(List<Tree> treeList, IEnumerable<ModuleModel> allMenus, Tree tree, int moduleId)
         {
             var childMenus = allMenus.Where(x => x.ParentId == moduleId).OrderBy(x => x.SortCode);
@@ -63,11 +54,6 @@ namespace Nzh.Faker.Service
             }
         }
 
-        /// <summary>
-        /// 根据角色ID获取菜单列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <returns></returns>
         private IEnumerable<ModuleModel> GetModuleListByRoleId(int roleId)
         {
             string sql = @"SELECT b.* FROM roleauthorize a
@@ -76,9 +62,6 @@ namespace Nzh.Faker.Service
             return list;
         }
 
-        /// <summary>
-        /// Module treeSelect数据列表
-        /// </summary>
         public IEnumerable<TreeSelect> GetModuleTreeSelect()
         {
             IEnumerable<ModuleModel> moduleList = BaseRepository.GetAll("Id,FullName,ParentId", "ORDER BY SortCode ASC");
@@ -98,9 +81,6 @@ namespace Nzh.Faker.Service
             return treeSelectList;
         }
 
-        /// <summary>
-        /// 递归遍历treeSelectList
-        /// </summary>
         private void GetModuleChildren(List<TreeSelect> treeSelectList, IEnumerable<ModuleModel> moduleList, TreeSelect tree, int id)
         {
             var childModuleList = moduleList.Where(x => x.ParentId == id).OrderBy(x => x.SortCode);
@@ -121,11 +101,7 @@ namespace Nzh.Faker.Service
                 }
             }
         }
-        /// <summary>
-        /// 获取所有菜单列表及可用按钮权限列表
-        /// </summary>
-        /// <param name="roleId">角色ID</param>
-        /// <returns></returns>
+
         public IEnumerable<ModuleModel> GetModuleButtonList(int roleId)
         {
             string returnFields = "Id,ParentId,FullName,Icon,SortCode";

@@ -10,6 +10,7 @@ namespace Nzh.Faker.IService
     public interface IOrganizeService : IBaseService<OrganizeModel>
     {
         IEnumerable<OrganizeModel> GetOrganizeList();
+
         IEnumerable<TreeSelect> GetOrganizeTreeSelect();
     }
 }

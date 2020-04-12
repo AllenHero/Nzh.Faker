@@ -12,10 +12,6 @@ namespace Nzh.Faker.Common
 {
     public class Net
     {
-        #region Ip(获取Ip)
-        /// <summary>
-        /// 获取Ip
-        /// </summary>
         public static string Ip
         {
             get
@@ -29,9 +25,6 @@ namespace Nzh.Faker.Common
             }
         }
 
-        /// <summary>
-        /// 获取Web客户端的Ip
-        /// </summary>
         private static string GetWebClientIp()
         {
             var ip = GetWebRemoteIp();
@@ -43,17 +36,11 @@ namespace Nzh.Faker.Common
             return string.Empty;
         }
 
-        /// <summary>
-        /// 获取Web远程Ip
-        /// </summary>
         private static string GetWebRemoteIp()
         {
             return HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
         }
 
-        /// <summary>
-        /// 获取局域网IP
-        /// </summary>
         private static string GetLanIp()
         {
             foreach (var hostAddress in Dns.GetHostAddresses(Dns.GetHostName()))
@@ -64,13 +51,6 @@ namespace Nzh.Faker.Common
             return string.Empty;
         }
 
-        #endregion
-
-        #region Host(获取主机名)
-
-        /// <summary>
-        /// 获取主机名
-        /// </summary>
         public static string Host
         {
             get
@@ -79,9 +59,6 @@ namespace Nzh.Faker.Common
             }
         }
 
-        /// <summary>
-        /// 获取Web客户端主机名
-        /// </summary>
         private static string GetWebClientHostName()
         {
             if (!HttpContext.Current.Request.IsLocal)
@@ -93,21 +70,11 @@ namespace Nzh.Faker.Common
             return result;
         }
 
-        #endregion
-
-        #region 获取mac地址
-        /// <summary>
-        /// 返回描述本地计算机上的网络接口的对象(网络接口也称为网络适配器)。
-        /// </summary>
-        /// <returns></returns>
         public static NetworkInterface[] NetCardInfo()
         {
             return NetworkInterface.GetAllNetworkInterfaces();
         }
-        ///<summary>
-        /// 通过NetworkInterface读取网卡Mac
-        ///</summary>
-        ///<returns></returns>
+
         public static List<string> GetMacByNetworkInterface()
         {
             List<string> macs = new List<string>();
@@ -118,14 +85,7 @@ namespace Nzh.Faker.Common
             }
             return macs;
         }
-        #endregion
 
-        #region Ip城市(获取Ip城市)
-        /// <summary>
-        /// 获取IP地址信息
-        /// </summary>
-        /// <param name="ip"></param>
-        /// <returns></returns>
         public static string GetLocation(string ip)
         {
             string res = "";
@@ -157,38 +117,34 @@ namespace Nzh.Faker.Common
             }
             return res;
         }
-        /// <summary>
-        /// 百度接口
-        /// </summary>
+
         public class obj
         {
             public List<dataone> data { get; set; }
         }
+
         public class dataone
         {
             public string location { get; set; }
         }
-        /// <summary>
-        /// 聚合数据
-        /// </summary>
+
         public class objex
         {
             public string resultcode { get; set; }
+
             public dataoneex result { get; set; }
+
             public string reason { get; set; }
+
             public string error_code { get; set; }
         }
+
         public class dataoneex
         {
             public string area { get; set; }
             public string location { get; set; }
         }
-        #endregion
 
-        #region Browser(获取浏览器信息)
-        /// <summary>
-        /// 获取浏览器信息
-        /// </summary>
         public static string Browser
         {
             get
@@ -199,6 +155,5 @@ namespace Nzh.Faker.Common
                 return string.Format("{0} {1}", browser.Browser, browser.Version);
             }
         }
-        #endregion
     }
 }

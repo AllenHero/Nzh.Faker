@@ -12,13 +12,6 @@ namespace Nzh.Faker.Repository
 {
     public class ButtonRepository : BaseRepository<ButtonModel>, IButtonRepository
     {
-        /// <summary>
-        /// 根据角色菜单按钮位置获得按钮列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="position"></param>
-        /// <returns></returns>
         public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, PositionEnum position)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -33,13 +26,6 @@ namespace Nzh.Faker.Repository
             }
         }
 
-        /// <summary>
-        /// 根据角色菜单获得按钮列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="selectList"></param>
-        /// <returns></returns>
         public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, out IEnumerable<ButtonModel> selectList)
         {
             using (var conn = MySqlHelper.GetConnection())

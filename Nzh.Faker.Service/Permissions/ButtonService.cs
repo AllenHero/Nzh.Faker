@@ -13,24 +13,12 @@ namespace Nzh.Faker.Service
     public class ButtonService : BaseService<ButtonModel>, IButtonService
     {
         public IButtonRepository ButtonRepository { get; set; }
-        /// <summary>
-        /// 根据角色菜单按钮位置获得按钮列表
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="position"></param>
-        /// <returns></returns>
+
         public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, PositionEnum position)
         {
             return ButtonRepository.GetButtonListByRoleIdModuleId(roleId, moduleId, position);
         }
 
-        /// <summary>
-        /// 根据角色菜单获得按钮列表Html
-        /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="moduleId"></param>
-        /// <returns></returns>
         public string GetButtonListHtmlByRoleIdModuleId(int roleId, int moduleId)
         {
             IEnumerable<ButtonModel> selectList = null;
@@ -60,6 +48,5 @@ namespace Nzh.Faker.Service
             }
             return GetListByFilter(filter, pageInfo, _where);
         }
-
     }
 }

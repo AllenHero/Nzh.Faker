@@ -14,17 +14,9 @@ namespace Nzh.Faker.Common
 {
     public class HttpMethods
     {
-        #region POST
-        /// <summary>
-        /// HTTP POST方式请求数据
-        /// </summary>
-        /// <param name="url">URL.</param>
-        /// <param name="param">POST的数据</param>
-        /// <returns></returns>
         public static string HttpPost(string url, string param = null)
         {
             HttpWebRequest request;
-
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
@@ -36,25 +28,19 @@ namespace Nzh.Faker.Common
             {
                 request = WebRequest.Create(url) as HttpWebRequest;
             }
-
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
             request.Accept = "*/*";
             request.Timeout = 15000;
             request.AllowAutoRedirect = false;
-
-
-
             StreamWriter requestStream = null;
             WebResponse response = null;
             string responseStr = null;
-
             try
             {
                 requestStream = new StreamWriter(request.GetRequestStream());
                 requestStream.Write(param);
                 requestStream.Close();
-
                 response = request.GetResponse();
                 if (response != null)
                 {
@@ -73,7 +59,6 @@ namespace Nzh.Faker.Common
                 requestStream = null;
                 response = null;
             }
-
             return responseStr;
         }
 
@@ -81,6 +66,7 @@ namespace Nzh.Faker.Common
         {
             return true; //总是接受  
         }
+
         public static string BuildRequest(string strUrl, Dictionary<string, string> dicPara, string fileName)
         {
             string contentType = "image/jpeg";
@@ -89,9 +75,7 @@ namespace Nzh.Faker.Common
             byte[] PicByte = new byte[Pic.Length];
             Pic.Read(PicByte, 0, PicByte.Length);
             int lengthFile = PicByte.Length;
-
             //构造请求地址
-
             //设置HttpWebRequest基本信息
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(strUrl);
             //设置请求方式：get、post
@@ -119,7 +103,6 @@ namespace Nzh.Faker.Common
             //设置长度
             long length = postHeaderBytes.Length + lengthFile + boundayBytes.Length;
             request.ContentLength = length;
-
             //请求远程HTTP
             Stream requestStream = request.GetRequestStream();
             Stream myStream = null;
@@ -144,11 +127,9 @@ namespace Nzh.Faker.Common
                     requestStream.Close();
                 }
             }
-
             //读取处理结果
             StreamReader reader = new StreamReader(myStream, code);
             StringBuilder responseData = new StringBuilder();
-
             String line;
             while ((line = reader.ReadLine()) != null)
             {
@@ -156,21 +137,12 @@ namespace Nzh.Faker.Common
             }
             myStream.Close();
             Pic.Close();
-
             return responseData.ToString();
         }
-        #endregion
 
-        #region Put
-        /// <summary>
-        /// HTTP Put方式请求数据.
-        /// </summary>
-        /// <param name="url">URL.</param>
-        /// <returns></returns>
         public static string HttpPut(string url, string param = null)
         {
             HttpWebRequest request;
-
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
@@ -187,17 +159,14 @@ namespace Nzh.Faker.Common
             request.Accept = "*/*";
             request.Timeout = 15000;
             request.AllowAutoRedirect = false;
-
             StreamWriter requestStream = null;
             WebResponse response = null;
             string responseStr = null;
-
             try
             {
                 requestStream = new StreamWriter(request.GetRequestStream());
                 requestStream.Write(param);
                 requestStream.Close();
-
                 response = request.GetResponse();
                 if (response != null)
                 {
@@ -216,21 +185,12 @@ namespace Nzh.Faker.Common
                 requestStream = null;
                 response = null;
             }
-
             return responseStr;
         }
-        #endregion
 
-        #region Delete
-        /// <summary>
-        /// HTTP Delete方式请求数据.
-        /// </summary>
-        /// <param name="url">URL.</param>
-        /// <returns></returns>
         public static string HttpDelete(string url, string param = null)
         {
             HttpWebRequest request;
-
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
@@ -247,17 +207,14 @@ namespace Nzh.Faker.Common
             request.Accept = "*/*";
             request.Timeout = 15000;
             request.AllowAutoRedirect = false;
-
             StreamWriter requestStream = null;
             WebResponse response = null;
             string responseStr = null;
-
             try
             {
                 requestStream = new StreamWriter(request.GetRequestStream());
                 requestStream.Write(param);
                 requestStream.Close();
-
                 response = request.GetResponse();
                 if (response != null)
                 {
@@ -272,18 +229,10 @@ namespace Nzh.Faker.Common
             }
             return responseStr;
         }
-        #endregion
 
-        #region Get
-        /// <summary>
-        /// HTTP GET方式请求数据.
-        /// </summary>
-        /// <param name="url">URL.</param>
-        /// <returns></returns>
         public static string HttpGet(string url, Hashtable headht = null)
         {
             HttpWebRequest request;
-
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
@@ -309,7 +258,6 @@ namespace Nzh.Faker.Common
                     request.Headers.Add(item.Key.ToString(), item.Value.ToString());
                 }
             }
-
             try
             {
                 response = request.GetResponse();
@@ -327,10 +275,10 @@ namespace Nzh.Faker.Common
             }
             return responseStr;
         }
+
         public static string HttpGet(string url, Encoding encodeing, Hashtable headht = null)
         {
             HttpWebRequest request;
-
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
@@ -356,7 +304,6 @@ namespace Nzh.Faker.Common
                     request.Headers.Add(item.Key.ToString(), item.Value.ToString());
                 }
             }
-
             try
             {
                 response = request.GetResponse();
@@ -374,23 +321,18 @@ namespace Nzh.Faker.Common
             }
             return responseStr;
         }
-        #endregion
 
-        #region Post With Pic
         private string HttpPost(string url, IDictionary<object, object> param, string filePath)
         {
             string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
             byte[] boundarybytes = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
-
             HttpWebRequest wr = (HttpWebRequest)WebRequest.Create(url);
             wr.ContentType = "multipart/form-data; boundary=" + boundary;
             wr.Method = "POST";
             wr.KeepAlive = true;
             wr.Credentials = System.Net.CredentialCache.DefaultCredentials;
-
             Stream rs = wr.GetRequestStream();
             string responseStr = null;
-
             string formdataTemplate = "Content-Disposition: form-data; name=\"{0}\"\r\n\r\n{1}";
             foreach (string key in param.Keys)
             {
@@ -400,12 +342,10 @@ namespace Nzh.Faker.Common
                 rs.Write(formitembytes, 0, formitembytes.Length);
             }
             rs.Write(boundarybytes, 0, boundarybytes.Length);
-
             string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\n\r\n";
             string header = string.Format(headerTemplate, "pic", filePath, "text/plain");
             byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
             rs.Write(headerbytes, 0, headerbytes.Length);
-
             FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             byte[] buffer = new byte[4096];
             int bytesRead = 0;
@@ -414,11 +354,9 @@ namespace Nzh.Faker.Common
                 rs.Write(buffer, 0, bytesRead);
             }
             fileStream.Close();
-
             byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
             rs.Write(trailer, 0, trailer.Length);
             rs.Close();
-
             WebResponse wresp = null;
             try
             {
@@ -440,30 +378,18 @@ namespace Nzh.Faker.Common
             }
             return responseStr;
         }
-        #endregion
 
-        #region Post With Pic
-        /// <summary>
-        /// HTTP POST方式请求数据(带图片)
-        /// </summary>
-        /// <param name="url">URL</param>        
-        /// <param name="param">POST的数据</param>
-        /// <param name="fileByte">图片</param>
-        /// <returns></returns>
         public static string HttpPost(string url, IDictionary<object, object> param, byte[] fileByte)
         {
             string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
             byte[] boundarybytes = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
-
             HttpWebRequest wr = (HttpWebRequest)WebRequest.Create(url);
             wr.ContentType = "multipart/form-data; boundary=" + boundary;
             wr.Method = "POST";
             wr.KeepAlive = true;
             wr.Credentials = System.Net.CredentialCache.DefaultCredentials;
-
             Stream rs = wr.GetRequestStream();
             string responseStr = null;
-
             string formdataTemplate = "Content-Disposition: form-data; name=\"{0}\"\r\n\r\n{1}";
             foreach (string key in param.Keys)
             {
@@ -473,18 +399,14 @@ namespace Nzh.Faker.Common
                 rs.Write(formitembytes, 0, formitembytes.Length);
             }
             rs.Write(boundarybytes, 0, boundarybytes.Length);
-
             string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\n\r\n";
             string header = string.Format(headerTemplate, "pic", fileByte, "text/plain");//image/jpeg
             byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
             rs.Write(headerbytes, 0, headerbytes.Length);
-
             rs.Write(fileByte, 0, fileByte.Length);
-
             byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
             rs.Write(trailer, 0, trailer.Length);
             rs.Close();
-
             WebResponse wresp = null;
             try
             {
@@ -506,13 +428,7 @@ namespace Nzh.Faker.Common
             }
             return responseStr;
         }
-        #endregion
 
-        #region HttpsClient
-        /// <summary>
-        /// 创建HttpClient
-        /// </summary>
-        /// <returns></returns>
         public static HttpClient CreateHttpClient(string url)
         {
             HttpClient httpclient;
@@ -528,6 +444,5 @@ namespace Nzh.Faker.Common
             }
             return httpclient;
         }
-        #endregion
     }
 }

@@ -1,5 +1,4 @@
-﻿//using Nzh.Faker.Areas.SysSet.Models;
-using Nzh.Faker.Common;
+﻿using Nzh.Faker.Common;
 using Nzh.Faker.IService;
 using Nzh.Faker.Model;
 using System;
@@ -13,17 +12,21 @@ namespace Nzh.Faker.Controllers
     public class LoginController : Controller
     {
         public IUserService UserService { get; set; }
+
         public ILogonLogService LogonLogService { get; set; }
+
         // GET: Login
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult GetAuthCode()
         {
             return File(new VerifyCode().GetVerifyCode(), @"image/Gif");
         }
+
         [HttpPost]
         public ActionResult LoginOn(string username, string password, string captcha)
         {
@@ -71,6 +74,7 @@ namespace Nzh.Faker.Controllers
                 return Content(new AjaxResult { state = ResultType.error.ToString(), message = ex.Message }.ToJson());
             }
         }
+
         [HttpGet]
         public ActionResult LoginOut()
         {

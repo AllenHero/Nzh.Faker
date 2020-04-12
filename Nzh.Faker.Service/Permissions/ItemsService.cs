@@ -15,9 +15,6 @@ namespace Nzh.Faker.Service
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Items treeSelect数据列表
-        /// </summary>
         public IEnumerable<TreeSelect> GetItemsTreeSelect()
         {
             IEnumerable<ItemsModel> moduleList = BaseRepository.GetAll("Id,FullName,ParentId", "ORDER BY SortCode ASC");
@@ -37,9 +34,6 @@ namespace Nzh.Faker.Service
             return treeSelectList;
         }
 
-        /// <summary>
-        /// 递归遍历treeSelectList
-        /// </summary>
         private void GetItemsChildren(List<TreeSelect> treeSelectList, IEnumerable<ItemsModel> moduleList, TreeSelect tree, int id)
         {
             var childModuleList = moduleList.Where(x => x.ParentId == id).OrderBy(x => x.SortCode);

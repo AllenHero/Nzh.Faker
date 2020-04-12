@@ -12,7 +12,9 @@ namespace Nzh.Faker.Common
         {
             get { return new OperatorProvider(); }
         }
+
         private string LoginUserKey = "Loginkey";
+
         private string LoginProvider = Configs.GetValue("LoginProvider");
 
         public OperatorModel GetCurrent()
@@ -28,6 +30,7 @@ namespace Nzh.Faker.Common
             }
             return operatorModel;
         }
+
         public void AddCurrent(OperatorModel operatorModel)
         {
             if (LoginProvider == "Cookie")
@@ -40,6 +43,7 @@ namespace Nzh.Faker.Common
             }
             WebHelper.WriteCookie("Mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson(), 32));
         }
+
         public void RemoveCurrent()
         {
             if (LoginProvider == "Cookie")

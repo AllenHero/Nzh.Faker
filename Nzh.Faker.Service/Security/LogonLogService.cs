@@ -26,11 +26,6 @@ namespace Nzh.Faker.Service
             return GetListByFilter(filter, pageInfo, _where);
         }
 
-        /// <summary>
-        /// 写入登录日志
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         public int WriteDbLog(LogonLogModel model)
         {
             model.IPAddress = Net.Ip;

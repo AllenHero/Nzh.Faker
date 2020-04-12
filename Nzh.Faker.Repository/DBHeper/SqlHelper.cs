@@ -11,6 +11,7 @@ namespace Nzh.Faker.Repository
     public class SqlHelper
     {
         static string sqlconnectionString = ConfigurationManager.ConnectionStrings["sqlconn"].ToString();
+
         public static SqlConnection SqlConnection()
         {
             var connection = new SqlConnection(sqlconnectionString);

@@ -11,11 +11,6 @@ namespace Nzh.Faker.Common
 {
     public class EnumExt
     {
-        /// <summary>
-        /// 根据枚举成员获取自定义属性EnumDisplayNameAttribute的属性DisplayName
-        /// </summary>
-        /// <param name="e"></param>
-        /// <returns></returns>
         public static string GetEnumCustomDescription(object e)
         {
             //获取枚举的Type类型对象
@@ -41,11 +36,6 @@ namespace Nzh.Faker.Common
             return e.ToString();
         }
 
-        /// <summary>
-        /// 根据枚举，把枚举自定义特性EnumDisplayNameAttribut的Display属性值撞到SelectListItem中
-        /// </summary>
-        /// <param name="enumType">枚举</param>
-        /// <returns></returns>
         public static List<SelectListItem> GetSelectList(Type enumType)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();

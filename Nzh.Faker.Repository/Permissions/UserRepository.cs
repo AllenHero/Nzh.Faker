@@ -11,12 +11,6 @@ namespace Nzh.Faker.Repository
 {
     public class UserRepository : BaseRepository<UserModel>, IUserRepository
     {
-        /// <summary>
-        /// 登录
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
         public UserModel LoginOn(string username, string password)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -33,12 +27,7 @@ namespace Nzh.Faker.Repository
                 return conn.Query<UserModel>(sql, new { Account = username, UserPassWord = password }).FirstOrDefault();
             }
         }
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+
         public int ModifyUserPwd(ModifyPwd model, int userId)
         {
             using (var conn = MySqlHelper.GetConnection())
