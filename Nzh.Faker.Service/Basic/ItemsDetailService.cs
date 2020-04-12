@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nzh.Faker.Service
+namespace Nzh.Faker.Service.Basic
 {
     public class ItemsDetailService : BaseService<ItemsDetailModel>, IItemsDetailService
     {

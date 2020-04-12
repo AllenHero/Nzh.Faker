@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="Basic\ItemsDetailService.cs" />
+    <Compile Include="Basic\ItemsService.cs" />
     <Compile Include="Permissions\ButtonService.cs" />
-    <Compile Include="Permissions\ItemsDetailService.cs" />
-    <Compile Include="Permissions\ItemsService.cs" />
     <Compile Include="Permissions\ModuleService.cs" />
     <Compile Include="Permissions\OrganizeService.cs" />
     <Compile Include="Permissions\RoleAuthorizeService.cs" />
@@ -71,5 +71,6 @@
       <Name>Nzh.Faker.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\IItemsDetailService.cs" />
+    <Compile Include="Basic\IItemsService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Permissions\IButtonService.cs" />
-    <Compile Include="Permissions\IItemsDetailService.cs" />
-    <Compile Include="Permissions\IItemsService.cs" />
     <Compile Include="Permissions\IModuleService.cs" />
     <Compile Include="Permissions\IOrganizeService.cs" />
     <Compile Include="Permissions\IRoleAuthorizeService.cs" />

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Nzh.Faker.Areas.Permissions.Controllers
+namespace Nzh.Faker.Areas.Baisc.Controllers
 {
     public class ItemsDetailController : BaseController
     {
@@ -58,6 +58,5 @@ namespace Nzh.Faker.Areas.Permissions.Controllers
             var result = ItemsDetailService.DeleteById(id) ? SuccessTip("删除成功") : ErrorTip("删除失败");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

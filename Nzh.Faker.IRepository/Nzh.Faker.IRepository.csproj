@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\IItemsDetailRepository.cs" />
+    <Compile Include="Basic\IItemsRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="Permissions\IButtonRepository.cs" />
-    <Compile Include="Permissions\IItemsDetailRepository.cs" />
-    <Compile Include="Permissions\IItemsRepository.cs" />
     <Compile Include="Permissions\IModuleRepository.cs" />
     <Compile Include="Permissions\IOrganizeRepository.cs" />
     <Compile Include="Permissions\IRoleAuthorizeRepository.cs" />

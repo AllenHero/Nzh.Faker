@@ -68,14 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Basic\ItemsDetailRepository.cs" />
+    <Compile Include="Basic\ItemsRepository.cs" />
     <Compile Include="DBHeper\Common.cs" />
     <Compile Include="DBHeper\MySqlHelper.cs" />
     <Compile Include="DBHeper\PageCriteria.cs" />
     <Compile Include="DBHeper\PageDataView.cs" />
     <Compile Include="DBHeper\SqlHelper.cs" />
     <Compile Include="Permissions\ButtonRepository.cs" />
-    <Compile Include="Permissions\ItemsDetailRepository.cs" />
-    <Compile Include="Permissions\ItemsRepository.cs" />
     <Compile Include="Permissions\ModuleRepository.cs" />
     <Compile Include="Permissions\OrganizeRepository.cs" />
     <Compile Include="Permissions\RoleAuthorizeRepository.cs" />

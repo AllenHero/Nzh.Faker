@@ -138,9 +138,10 @@
     <Compile Include="App_Start\Handler\HandlerErrorAttribute.cs" />
     <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Basic\BasicAreaRegistration.cs" />
+    <Compile Include="Areas\Basic\Controllers\ItemsController.cs" />
+    <Compile Include="Areas\Basic\Controllers\ItemsDetailController.cs" />
     <Compile Include="Areas\Permissions\Controllers\ButtonController.cs" />
-    <Compile Include="Areas\Permissions\Controllers\ItemsController.cs" />
-    <Compile Include="Areas\Permissions\Controllers\ItemsDetailController.cs" />
     <Compile Include="Areas\Permissions\Controllers\ModuleController.cs" />
     <Compile Include="Areas\Permissions\Controllers\OrganizeController.cs" />
     <Compile Include="Areas\Permissions\Controllers\RoleAuthorizeController.cs" />
@@ -2635,12 +2636,6 @@
     <Content Include="Areas\Permissions\Views\Button\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Index.cshtml" />
-    <Content Include="Areas\Permissions\Views\ItemsDetail\Add.cshtml" />
-    <Content Include="Areas\Permissions\Views\ItemsDetail\Edit.cshtml" />
-    <Content Include="Areas\Permissions\Views\ItemsDetail\Index.cshtml" />
-    <Content Include="Areas\Permissions\Views\Items\Add.cshtml" />
-    <Content Include="Areas\Permissions\Views\Items\Edit.cshtml" />
-    <Content Include="Areas\Permissions\Views\Items\Index.cshtml" />
     <Content Include="Areas\Permissions\Views\Module\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\Module\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Module\Index.cshtml" />
@@ -2657,6 +2652,13 @@
     <Content Include="Areas\Permissions\Views\User\UserInfo.cshtml" />
     <Content Include="Areas\Permissions\Views\User\UserPwd.cshtml" />
     <Content Include="Areas\Permissions\Views\web.config" />
+    <Content Include="Areas\Basic\Views\web.config" />
+    <Content Include="Areas\Basic\Views\Items\Add.cshtml" />
+    <Content Include="Areas\Basic\Views\Items\Edit.cshtml" />
+    <Content Include="Areas\Basic\Views\Items\Index.cshtml" />
+    <Content Include="Areas\Basic\Views\ItemsDetail\Add.cshtml" />
+    <Content Include="Areas\Basic\Views\ItemsDetail\Edit.cshtml" />
+    <Content Include="Areas\Basic\Views\ItemsDetail\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2668,13 +2670,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -2685,9 +2680,17 @@
     <Content Include="Views\Shared\_LayoutForm.cshtml" />
     <Content Include="Views\Shared\_LayoutList.cshtml" />
     <Content Include="Views\Shared\_LayoutSysSetPage.cshtml" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Basic\Models\" />
     <Folder Include="Areas\Permissions\Models\" />
     <Folder Include="Areas\Security\Models\" />
     <Folder Include="Upload\" />

@@ -42,14 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\ItemsDetailModel.cs" />
+    <Compile Include="Basic\ItemsModel.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Filter\SearchFilter.cs" />
     <Compile Include="ModifyPwd.cs" />
     <Compile Include="PageInfo.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Permissions\ButtonModel.cs" />
-    <Compile Include="Permissions\ItemsDetailModel.cs" />
-    <Compile Include="Permissions\ItemsModel.cs" />
     <Compile Include="Permissions\ModuleModel.cs" />
     <Compile Include="Permissions\OrganizeModel.cs" />
     <Compile Include="Permissions\RoleAuthorizeModel.cs" />
