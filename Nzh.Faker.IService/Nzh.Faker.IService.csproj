@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Donation\IDonationService.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Permissions\IButtonService.cs" />
     <Compile Include="Permissions\IItemsDetailService.cs" />

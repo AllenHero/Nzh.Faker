@@ -1,4 +1,4 @@
-﻿using Nzh.Faker.Areas.SysSet.Models;
+﻿//using Nzh.Faker.Areas.SysSet.Models;
 using Nzh.Faker.Common;
 using Nzh.Faker.IService;
 using Nzh.Faker.Model;
@@ -17,7 +17,7 @@ namespace Nzh.Faker.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            return View(new WebModel().GetWebInfo());
+            return View();
         }
         [HttpGet]
         public ActionResult GetAuthCode()

@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Donation\IDonationRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
     <Compile Include="Permissions\IButtonRepository.cs" />
     <Compile Include="Permissions\IItemsDetailRepository.cs" />

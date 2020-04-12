@@ -1,4 +1,4 @@
-﻿using Nzh.Faker.Areas.SysSet.Models;
+﻿//using Nzh.Faker.Areas.SysSet.Models;
 using Nzh.Faker.IService;
 using Nzh.Faker.Model;
 using System;
@@ -12,20 +12,21 @@ namespace Nzh.Faker.Controllers
 {
     public class HomeController : BaseController
     {
-        public IDonationService DonationService { get; set; }
+        //public IDonationService DonationService { get; set; }
 
         public override ActionResult Index(int? id)
         {
             ViewBag.Account = Operator == null ? "" : Operator.Account;
             ViewBag.HeadIcon = Operator == null ? "" : Operator.HeadIcon;
-            return View(new WebModel().GetWebInfo());
+            return View();
         }
 
         public ActionResult Main()
         {
-            DonationModel donationModel = DonationService.GetConsoleNumShow();
-            ViewBag.DonationTop = DonationService.GetSumPriceTop(5).ToList();
-            return View(donationModel);
+            //DonationModel donationModel = DonationService.GetConsoleNumShow();
+            //ViewBag.DonationTop = DonationService.GetSumPriceTop(5).ToList();
+            //return View(donationModel);
+            return View();
         }
 
         public JsonResult ExportFile()
