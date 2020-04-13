@@ -52,7 +52,6 @@
     <Compile Include="Permissions\IRoleService.cs" />
     <Compile Include="Permissions\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\ILogonLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nzh.Faker.Common\Nzh.Faker.Common.csproj">

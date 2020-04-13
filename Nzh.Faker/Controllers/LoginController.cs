@@ -13,7 +13,7 @@ namespace Nzh.Faker.Controllers
     {
         public IUserService UserService { get; set; }
 
-        public ILogonLogService LogonLogService { get; set; }
+        public ILogService LogService { get; set; }
 
         // GET: Login
         public ActionResult Index()
@@ -30,7 +30,7 @@ namespace Nzh.Faker.Controllers
         [HttpPost]
         public ActionResult LoginOn(string username, string password, string captcha)
         {
-            LogonLogModel logEntity = new LogonLogModel();
+            LogModel logEntity = new LogModel();
             logEntity.LogType = DbLogType.Login.ToString();
             try
             {
@@ -57,7 +57,7 @@ namespace Nzh.Faker.Controllers
                     logEntity.Account = userEntity.Account;
                     logEntity.RealName = userEntity.RealName;
                     logEntity.Description = "登陆成功";
-                    LogonLogService.WriteDbLog(logEntity);
+                    LogService.WriteDbLog(logEntity);
                     return Content(new AjaxResult { state = ResultType.success.ToString(), message = "登录成功" }.ToJson());
                 }
                 else
@@ -70,7 +70,7 @@ namespace Nzh.Faker.Controllers
                 logEntity.Account = username;
                 logEntity.RealName = username;
                 logEntity.Description = "登录失败，" + ex.Message;
-                LogonLogService.WriteDbLog(logEntity);
+                LogService.WriteDbLog(logEntity);
                 return Content(new AjaxResult { state = ResultType.error.ToString(), message = ex.Message }.ToJson());
             }
         }
@@ -78,7 +78,7 @@ namespace Nzh.Faker.Controllers
         [HttpGet]
         public ActionResult LoginOut()
         {
-            LogonLogService.WriteDbLog(new LogonLogModel
+            LogService.WriteDbLog(new LogModel
             {
                 LogType = DbLogType.Exit.ToString(),
                 Account = OperatorProvider.Provider.GetCurrent().Account,

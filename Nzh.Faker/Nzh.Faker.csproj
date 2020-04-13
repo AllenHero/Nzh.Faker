@@ -149,8 +149,6 @@
     <Compile Include="Areas\Permissions\Controllers\RoleController.cs" />
     <Compile Include="Areas\Permissions\Controllers\UserController.cs" />
     <Compile Include="Areas\Permissions\PermissionsAreaRegistration.cs" />
-    <Compile Include="Areas\Security\Controllers\LogonLogController.cs" />
-    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -2632,8 +2630,6 @@
     <Content Include="Content\lib\wangEditor\src\less\menus.less" />
     <Content Include="Content\lib\wangEditor\src\less\panel.less" />
     <Content Include="Content\lib\wangEditor\src\less\text.less" />
-    <Content Include="Areas\Security\Views\LogonLog\Index.cshtml" />
-    <Content Include="Areas\Security\Views\web.config" />
     <Content Include="Areas\Permissions\Views\Button\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Index.cshtml" />
@@ -2694,7 +2690,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Basic\Models\" />
     <Folder Include="Areas\Permissions\Models\" />
-    <Folder Include="Areas\Security\Models\" />
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
@@ -2715,6 +2710,10 @@
       <Project>{2D3627F0-7D91-41A1-BC18-83618BF4266F}</Project>
       <Name>Nzh.Faker.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nzh.Faker.IRepository\Nzh.Faker.IRepository.csproj">
+      <Project>{52382ABC-54FB-4C8B-AECD-409B2049E101}</Project>
+      <Name>Nzh.Faker.IRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Nzh.Faker.IService\Nzh.Faker.IService.csproj">
       <Project>{98B38D50-02A2-4300-9B60-80120E52E320}</Project>
       <Name>Nzh.Faker.IService</Name>
@@ -2722,6 +2721,14 @@
     <ProjectReference Include="..\Nzh.Faker.Model\Nzh.Faker.Model.csproj">
       <Project>{D3C13818-6AC5-46AD-925A-86076B3AF210}</Project>
       <Name>Nzh.Faker.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzh.Faker.Repository\Nzh.Faker.Repository.csproj">
+      <Project>{3766C528-1EA8-4179-ADFF-57257E527AD4}</Project>
+      <Name>Nzh.Faker.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzh.Faker.Service\Nzh.Faker.Service.csproj">
+      <Project>{562892F0-C2CF-4752-8925-9162A85B8D67}</Project>
+      <Name>Nzh.Faker.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

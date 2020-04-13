@@ -83,7 +83,6 @@
     <Compile Include="Permissions\RoleRepository.cs" />
     <Compile Include="Permissions\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\LogonLogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

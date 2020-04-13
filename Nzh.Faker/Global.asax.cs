@@ -1,5 +1,9 @@
 using Autofac;
 using Autofac.Integration.Mvc;
+using Nzh.Faker.IRepository;
+using Nzh.Faker.IService;
+using Nzh.Faker.Repository;
+using Nzh.Faker.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;

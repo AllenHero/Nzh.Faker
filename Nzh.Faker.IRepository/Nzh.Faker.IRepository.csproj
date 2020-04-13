@@ -52,7 +52,6 @@
     <Compile Include="Permissions\IRoleRepository.cs" />
     <Compile Include="Permissions\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\ILogonLogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nzh.Faker.Common\Nzh.Faker.Common.csproj">
