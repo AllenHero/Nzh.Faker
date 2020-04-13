@@ -23,7 +23,6 @@ namespace Nzh.Faker.Controllers
             get { return OperatorProvider.Provider.GetCurrent(); }
         }
 
-        // GET: Base
         public virtual ActionResult Index(int? id)
         {
             var _menuId = id == null ? 0 : id.Value;

@@ -15,7 +15,6 @@ namespace Nzh.Faker.Controllers
 
         public ILogService LogService { get; set; }
 
-        // GET: Login
         public ActionResult Index()
         {
             return View();
