@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Nzh.Faker.Repository
 {
-    public class ModuleRepository : BaseRepository<ModuleModel>, IModuleRepository
+    public class MenuRepository : BaseRepository<MenuModel>, IMenuRepository
     {
-        public IEnumerable<ModuleModel> GetModuleListByRoleId(string sql, int roleId)
+        public IEnumerable<MenuModel> GetModuleListByRoleId(string sql, int roleId)
         {
             using (var conn = MySqlHelper.GetConnection())
             {
@@ -19,7 +19,7 @@ namespace Nzh.Faker.Repository
                         and a.RoleId = @RoleId
                         GROUP BY a.ModuleId
                         ORDER BY b.SortCode ASC";
-                return conn.Query<ModuleModel>(sql, new { RoleId = roleId });
+                return conn.Query<MenuModel>(sql, new { RoleId = roleId });
             }
         }
     }

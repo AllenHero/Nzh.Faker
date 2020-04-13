@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nzh.Faker.IService
+namespace Nzh.Faker.IService.Permissions
 {
-    public interface IModuleService : IBaseService<ModuleModel>
+    public interface IMenuService : IBaseService<MenuModel>
     {
         dynamic GetModuleList(int roleId);
 
         IEnumerable<TreeSelect> GetModuleTreeSelect();
 
-        IEnumerable<ModuleModel> GetModuleButtonList(int roleId);
+        IEnumerable<MenuModel> GetModuleButtonList(int roleId);
     }
 }

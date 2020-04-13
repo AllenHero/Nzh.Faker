@@ -143,7 +143,7 @@
     <Compile Include="Areas\Basic\Controllers\ItemsDetailController.cs" />
     <Compile Include="Areas\Permissions\Controllers\ButtonController.cs" />
     <Compile Include="Areas\Permissions\Controllers\LogController.cs" />
-    <Compile Include="Areas\Permissions\Controllers\ModuleController.cs" />
+    <Compile Include="Areas\Permissions\Controllers\MenuController.cs" />
     <Compile Include="Areas\Permissions\Controllers\OrganizeController.cs" />
     <Compile Include="Areas\Permissions\Controllers\RoleAuthorizeController.cs" />
     <Compile Include="Areas\Permissions\Controllers\RoleController.cs" />
@@ -2633,9 +2633,6 @@
     <Content Include="Areas\Permissions\Views\Button\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Button\Index.cshtml" />
-    <Content Include="Areas\Permissions\Views\Module\Add.cshtml" />
-    <Content Include="Areas\Permissions\Views\Module\Edit.cshtml" />
-    <Content Include="Areas\Permissions\Views\Module\Index.cshtml" />
     <Content Include="Areas\Permissions\Views\Organize\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\Organize\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Organize\Index.cshtml" />
@@ -2657,6 +2654,9 @@
     <Content Include="Areas\Basic\Views\ItemsDetail\Edit.cshtml" />
     <Content Include="Areas\Basic\Views\ItemsDetail\Index.cshtml" />
     <Content Include="Areas\Permissions\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Permissions\Views\Menu\Add.cshtml" />
+    <Content Include="Areas\Permissions\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Permissions\Views\Menu\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

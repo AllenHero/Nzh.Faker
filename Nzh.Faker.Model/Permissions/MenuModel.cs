@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Nzh.Faker.Model
 {
-    [Table("Module")]
-    public class ModuleModel : Entity
+    [Table("Menu")]
+    public class MenuModel : Entity
     {
         public int ParentId { get; set; }
 

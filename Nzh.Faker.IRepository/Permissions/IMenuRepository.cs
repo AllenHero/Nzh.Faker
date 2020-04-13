@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Nzh.Faker.IRepository
 {
-    public interface IModuleRepository : IBaseRepository<ModuleModel>
+    public interface IMenuRepository : IBaseRepository<MenuModel>
     {
-        IEnumerable<ModuleModel> GetModuleListByRoleId(string sql, int roleId);
+        IEnumerable<MenuModel> GetModuleListByRoleId(string sql, int roleId);
     }
 }

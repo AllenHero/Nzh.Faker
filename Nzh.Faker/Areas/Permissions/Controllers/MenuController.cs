@@ -1,5 +1,5 @@
 ﻿using Nzh.Faker.Controllers;
-using Nzh.Faker.IService;
+using Nzh.Faker.IService.Permissions;
 using Nzh.Faker.Model;
 using System;
 using System.Collections.Generic;
@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace Nzh.Faker.Areas.Permissions.Controllers
 {
-    public class ModuleController : BaseController
+    public class MenuController : BaseController
     {
-        public IModuleService ModuleService { get; set; }
+        public IMenuService MenuService { get; set; }
 
         public override ActionResult Index(int? id)
         {
@@ -22,7 +22,7 @@ namespace Nzh.Faker.Areas.Permissions.Controllers
         [HttpGet]
         public JsonResult List()
         {
-            var list = ModuleService.GetAll();
+            var list = MenuService.GetAll();
             var result = new { code = 0, count = list.Count(), data = list };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -30,14 +30,14 @@ namespace Nzh.Faker.Areas.Permissions.Controllers
         [HttpGet]
         public JsonResult GetModuleList()
         {
-            object result = ModuleService.GetModuleList(Operator.RoleId);
+            object result = MenuService.GetModuleList(Operator.RoleId);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public JsonResult GetModuleTreeSelect()
         {
-            var result = ModuleService.GetModuleTreeSelect();
+            var result = MenuService.GetModuleTreeSelect();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -48,44 +48,44 @@ namespace Nzh.Faker.Areas.Permissions.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Add(ModuleModel model)
+        public ActionResult Add(MenuModel model)
         {
             model.FontFamily = "ok-icon";
             model.CreateTime = DateTime.Now;
             model.CreateUserId = Operator.UserId;
             model.UpdateTime = DateTime.Now;
             model.UpdateUserId = Operator.UserId;
-            var result = ModuleService.Insert(model) ? SuccessTip("添加成功") : ErrorTip("添加失败");
+            var result = MenuService.Insert(model) ? SuccessTip("添加成功") : ErrorTip("添加失败");
             return Json(result);
         }
 
         public ActionResult Edit(int id)
         {
-            var model = ModuleService.GetById(id);
+            var model = MenuService.GetById(id);
             return View(model);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(ModuleModel model)
+        public ActionResult Edit(MenuModel model)
         {
             model.UpdateTime = DateTime.Now;
             model.UpdateUserId = Operator.UserId;
-            var result = ModuleService.UpdateById(model) ? SuccessTip("修改成功") : ErrorTip("修改失败");
+            var result = MenuService.UpdateById(model) ? SuccessTip("修改成功") : ErrorTip("修改失败");
             return Json(result);
         }
 
         [HttpGet]
         public JsonResult Delete(int id)
         {
-            var result = ModuleService.DeleteById(id) ? SuccessTip("删除成功") : ErrorTip("删除失败");
+            var result = MenuService.DeleteById(id) ? SuccessTip("删除成功") : ErrorTip("删除失败");
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public JsonResult ModuleButtonList(int roleId)
         {
-            var list = ModuleService.GetModuleButtonList(roleId);
+            var list = MenuService.GetModuleButtonList(roleId);
             var result = new { code = 0, count = list.Count(), data = list };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
