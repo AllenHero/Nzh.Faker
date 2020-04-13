@@ -9,6 +9,6 @@ namespace Nzh.Faker.IRepository
 {
     public interface IMenuRepository : IBaseRepository<MenuModel>
     {
-        IEnumerable<MenuModel> GetModuleListByRoleId(string sql, int roleId);
+        IEnumerable<MenuModel> GetMenuListByRoleId(string sql, int roleId);
     }
 }

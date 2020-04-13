@@ -21,7 +21,7 @@ namespace Nzh.Faker.Model
         public string UrlAddress { get; set; }
 
         [Computed]
-        public string ModuleButtonHtml { get; set; }
+        public string MenuButtonHtml { get; set; }
 
         [Computed]
         public bool IsChecked { get; set; }

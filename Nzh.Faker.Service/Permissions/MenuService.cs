@@ -12,7 +12,7 @@ namespace Nzh.Faker.Service
 {
     public class MenuService : BaseService<MenuModel>, IMenuService
     {
-        public IMenuRepository ModuleRepository { get; set; }
+        public IMenuRepository MenuRepository { get; set; }
 
         public IButtonService ButtonService { get; set; }
 
@@ -24,24 +24,24 @@ namespace Nzh.Faker.Service
             throw new NotImplementedException();
         }
 
-        public dynamic GetModuleList(int roleId)
+        public dynamic GetMenuList(int roleId)
         {
-            IEnumerable<MenuModel> allMenus = GetModuleListByRoleId(roleId);
+            IEnumerable<MenuModel> allMenus = GetMenuListByRoleId(roleId);
             List<Tree> treeList = new List<Tree>();
             var rootMenus = allMenus.Where(x => x.ParentId == 0).OrderBy(x => x.SortCode);
             foreach (var item in rootMenus)
             {
                 var _tree = new Tree { id = item.Id, title = item.FullName, href = item.UrlAddress, fontFamily = item.FontFamily, icon = item.Icon };
-                GetModuleListByModuleId(treeList, allMenus, _tree, item.Id);
+                GetMenuListByMenuId(treeList, allMenus, _tree, item.Id);
                 treeList.Add(_tree);
             }
             var result = treeList;
             return result;
         }
 
-        private void GetModuleListByModuleId(List<Tree> treeList, IEnumerable<MenuModel> allMenus, Tree tree, int moduleId)
+        private void GetMenuListByMenuId(List<Tree> treeList, IEnumerable<MenuModel> allMenus, Tree tree, int menuId)
         {
-            var childMenus = allMenus.Where(x => x.ParentId == moduleId).OrderBy(x => x.SortCode);
+            var childMenus = allMenus.Where(x => x.ParentId == menuId).OrderBy(x => x.SortCode);
             if (childMenus != null && childMenus.Count() > 0)
             {
                 List<Tree> _children = new List<Tree>();
@@ -50,25 +50,25 @@ namespace Nzh.Faker.Service
                     var _tree = new Tree { id = item.Id, title = item.FullName, href = item.UrlAddress, fontFamily = item.FontFamily, icon = item.Icon };
                     _children.Add(_tree);
                     tree.children = _children;
-                    GetModuleListByModuleId(treeList, allMenus, _tree, item.Id);
+                    GetMenuListByMenuId(treeList, allMenus, _tree, item.Id);
                 }
             }
         }
 
-        private IEnumerable<MenuModel> GetModuleListByRoleId(int roleId)
+        private IEnumerable<MenuModel> GetMenuListByRoleId(int roleId)
         {
             string sql = @"SELECT b.* FROM roleauthorize a
-                           INNER JOIN menu b ON a.ModuleId = b.Id";
-            var list = ModuleRepository.GetModuleListByRoleId(sql, roleId);
+                           INNER JOIN menu b ON a.MenuId = b.Id";
+            var list = MenuRepository.GetMenuListByRoleId(sql, roleId);
             return list;
         }
 
-        public IEnumerable<TreeSelect> GetModuleTreeSelect()
+        public IEnumerable<TreeSelect> GetMenuTreeSelect()
         {
-            IEnumerable<MenuModel> moduleList = BaseRepository.GetAll("Id,FullName,ParentId", "ORDER BY SortCode ASC");
-            var rootModuleList = moduleList.Where(x => x.ParentId == 0).OrderBy(x => x.SortCode);
+            IEnumerable<MenuModel> menuList = BaseRepository.GetAll("Id,FullName,ParentId", "ORDER BY SortCode ASC");
+            var rootMenuList = menuList.Where(x => x.ParentId == 0).OrderBy(x => x.SortCode);
             List<TreeSelect> treeSelectList = new List<TreeSelect>();
-            foreach (var item in rootModuleList)
+            foreach (var item in rootMenuList)
             {
                 TreeSelect tree = new TreeSelect
                 {
@@ -76,19 +76,19 @@ namespace Nzh.Faker.Service
                     name = item.FullName,
                     open = false
                 };
-                GetModuleChildren(treeSelectList, moduleList, tree, item.Id);
+                GetMenuChildren(treeSelectList, menuList, tree, item.Id);
                 treeSelectList.Add(tree);
             }
             return treeSelectList;
         }
 
-        private void GetModuleChildren(List<TreeSelect> treeSelectList, IEnumerable<MenuModel> moduleList, TreeSelect tree, int id)
+        private void GetMenuChildren(List<TreeSelect> treeSelectList, IEnumerable<MenuModel> menuList, TreeSelect tree, int id)
         {
-            var childModuleList = moduleList.Where(x => x.ParentId == id).OrderBy(x => x.SortCode);
-            if (childModuleList != null && childModuleList.Count() > 0)
+            var childMenuList = menuList.Where(x => x.ParentId == id).OrderBy(x => x.SortCode);
+            if (childMenuList != null && childMenuList.Count() > 0)
             {
                 List<TreeSelect> _children = new List<TreeSelect>();
-                foreach (var item in childModuleList)
+                foreach (var item in childMenuList)
                 {
                     TreeSelect _tree = new TreeSelect
                     {
@@ -98,20 +98,20 @@ namespace Nzh.Faker.Service
                     };
                     _children.Add(_tree);
                     tree.children = _children;
-                    GetModuleChildren(treeSelectList, moduleList, _tree, item.Id);
+                    GetMenuChildren(treeSelectList, menuList, _tree, item.Id);
                 }
             }
         }
 
-        public IEnumerable<MenuModel> GetModuleButtonList(int roleId)
+        public IEnumerable<MenuModel> GetMenuButtonList(int roleId)
         {
             string returnFields = "Id,ParentId,FullName,Icon,SortCode";
             string orderby = "ORDER BY SortCode ASC";
             IEnumerable<MenuModel> list = GetAll(returnFields, orderby);
             foreach (var item in list)
             {
-                item.ModuleButtonHtml = ButtonService.GetButtonListHtmlByRoleIdModuleId(roleId, item.Id);
-                item.IsChecked = RoleAuthorizeService.GetListByRoleIdModuleId(roleId, item.Id).Count() > 0 ? true : false;
+                item.MenuButtonHtml = ButtonService.GetButtonListHtmlByRoleIdMenuId(roleId, item.Id);
+                item.IsChecked = RoleAuthorizeService.GetListByRoleIdMenuId(roleId, item.Id).Count() > 0 ? true : false;
             }
             return list;
         }

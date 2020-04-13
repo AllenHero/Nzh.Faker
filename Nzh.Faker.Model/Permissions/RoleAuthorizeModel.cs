@@ -12,7 +12,7 @@ namespace Nzh.Faker.Model
     {
         public int RoleId { get; set; }
 
-        public int ModuleId { get; set; }
+        public int MenuId { get; set; }
 
         public int ButtonId { get; set; }
     }

@@ -11,6 +11,6 @@ namespace Nzh.Faker.IService
     {
         int SavePremission(IEnumerable<RoleAuthorizeModel> entitys, int roleId);
 
-        IEnumerable<RoleAuthorizeModel> GetListByRoleIdModuleId(int roleId, int moduleId);
+        IEnumerable<RoleAuthorizeModel> GetListByRoleIdMenuId(int roleId, int menuId);
     }
 }

@@ -23,10 +23,10 @@ namespace Nzh.Faker.Service
             return RoleAuthorizeRepository.SavePremission(entitys, roleId);
         }
 
-        public IEnumerable<RoleAuthorizeModel> GetListByRoleIdModuleId(int roleId, int moduleId)
+        public IEnumerable<RoleAuthorizeModel> GetListByRoleIdMenuId(int roleId, int menuId)
         {
-            string where = "where RoleId=@RoleId and ModuleId=@ModuleId";
-            return GetByWhere(where, new { RoleId = roleId, ModuleId = moduleId });
+            string where = "where RoleId=@RoleId and MenuId=@MenuId";
+            return GetByWhere(where, new { RoleId = roleId, MenuId = menuId });
         }
     }
 }

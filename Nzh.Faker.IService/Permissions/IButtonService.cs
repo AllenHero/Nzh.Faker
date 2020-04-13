@@ -10,8 +10,8 @@ namespace Nzh.Faker.IService
 {
     public interface IButtonService : IBaseService<ButtonModel>
     {
-        IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, PositionEnum position);
+        IEnumerable<ButtonModel> GetButtonListByRoleIdMenuId(int roleId, int menuId, PositionEnum position);
 
-        string GetButtonListHtmlByRoleIdModuleId(int roleId, int moduleId);
+        string GetButtonListHtmlByRoleIdMenuId(int roleId, int menuId);
     }
 }

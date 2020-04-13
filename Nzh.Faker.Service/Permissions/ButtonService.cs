@@ -14,22 +14,22 @@ namespace Nzh.Faker.Service
     {
         public IButtonRepository ButtonRepository { get; set; }
 
-        public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, PositionEnum position)
+        public IEnumerable<ButtonModel> GetButtonListByRoleIdMenuId(int roleId, int menuId, PositionEnum position)
         {
-            return ButtonRepository.GetButtonListByRoleIdModuleId(roleId, moduleId, position);
+            return ButtonRepository.GetButtonListByRoleIdMenuId(roleId, menuId, position);
         }
 
-        public string GetButtonListHtmlByRoleIdModuleId(int roleId, int moduleId)
+        public string GetButtonListHtmlByRoleIdMenuId(int roleId, int menuId)
         {
             IEnumerable<ButtonModel> selectList = null;
-            var allList = ButtonRepository.GetButtonListByRoleIdModuleId(roleId, moduleId, out selectList);
+            var allList = ButtonRepository.GetButtonListByRoleIdMenuId(roleId, menuId, out selectList);
             StringBuilder sb = new StringBuilder();
             if (allList != null && allList.Count() > 0)
             {
                 foreach (var item in allList)
                 {
                     var checkedStr = selectList.FirstOrDefault(x => x.Id == item.Id) == null ? "" : "checked";
-                    sb.AppendFormat("<input name='cbx_{0}' class='layui-btn layui-btn-sm' lay-skin='primary' value='{1}' title='{2}' type='checkbox' {3}>", moduleId, item.Id, item.FullName, checkedStr);
+                    sb.AppendFormat("<input name='cbx_{0}' class='layui-btn layui-btn-sm' lay-skin='primary' value='{1}' title='{2}' type='checkbox' {3}>", menuId, item.Id, item.FullName, checkedStr);
                 }
             }
             return sb.ToString();

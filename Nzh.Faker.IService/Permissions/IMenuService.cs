@@ -9,10 +9,10 @@ namespace Nzh.Faker.IService.Permissions
 {
     public interface IMenuService : IBaseService<MenuModel>
     {
-        dynamic GetModuleList(int roleId);
+        dynamic GetMenuList(int roleId);
 
-        IEnumerable<TreeSelect> GetModuleTreeSelect();
+        IEnumerable<TreeSelect> GetMenuTreeSelect();
 
-        IEnumerable<MenuModel> GetModuleButtonList(int roleId);
+        IEnumerable<MenuModel> GetMenuButtonList(int roleId);
     }
 }
