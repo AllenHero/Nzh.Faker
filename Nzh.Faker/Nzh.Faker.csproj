@@ -179,11 +179,7 @@
     <Content Include="Content\images\home-04.png" />
     <Content Include="Content\images\loginbg.jpg" />
     <Content Include="Content\images\logo.jpg" />
-    <Content Include="Content\images\qq.jpg" />
-    <Content Include="Content\images\qqq.jpg" />
     <Content Include="Content\images\timg.jpg" />
-    <Content Include="Content\images\wx.png" />
-    <Content Include="Content\images\zfb.png" />
     <Content Include="Content\js\chartArea.js" />
     <Content Include="Content\js\chartChina.js" />
     <Content Include="Content\js\console.js" />
