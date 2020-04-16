@@ -13,7 +13,7 @@ namespace Nzh.Faker.Common
             get { return new OperatorProvider(); }
         }
 
-        private string LoginUserKey = "Loginkey";
+        private string LoginUserKey = "secom_loginkey_2018";
 
         private string LoginProvider = Configs.GetValue("LoginProvider");
 
